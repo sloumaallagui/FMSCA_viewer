@@ -34,9 +34,9 @@ npm install
 yarn install
 
 ## Start the app
-```bash
+
 npm run start
 
-##contact
+#contact
 
 for more information contact me at : sloumaallagui01@gmal.com
