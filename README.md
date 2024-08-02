@@ -37,4 +37,6 @@ yarn install
 ```bash
 npm run start
 
+##contact
+
 for more information contact me at : sloumaallagui01@gmal.com
