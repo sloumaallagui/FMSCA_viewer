@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
-
+import DatabaseService from './services/database-service.service';
+import MainPage from './pages/main-page.page';
+import LoadingPage from './pages/loading-page.page';
 function App() {
+  const [isDatabaseLoaded, setDatabaseLoaded] :any = useState(false);
+  useEffect(() =>{
+    DatabaseService.initDatabase().then((result: any) =>{
+      if(result){
+        setDatabaseLoaded(true)
+      }
+    })
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    { isDatabaseLoaded ? ( <MainPage /> ) : ( <LoadingPage /> ) }
     </div>
   );
 }
